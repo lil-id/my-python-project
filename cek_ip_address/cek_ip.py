@@ -10,18 +10,16 @@ def infoIP():
 
 def cekIP(ip_user, split):
     
-    ip_normal = []
-    
     for ip in split:
         if int(ip) > 255:
             print('Batas setiap oktet alamat IP adalah 255.')
             exit()
         else:
-            ip_normal.append(ip)
-    
-    classIP(ip_user, ip_normal)
+            continue
+            
+    classIP(ip_user, split)
 
-def classIP (ip_user, ip_normal): 
+def classIP (ip_user, split): 
 
     if int(split[0]) >= 0 and int(split[0]) <= 127:
         class_ip = 'IP Kelas: A (8 bit NetID, 24 bit HostID)'
