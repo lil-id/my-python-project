@@ -1,3 +1,5 @@
+import socket as s
+
 def infoIP():
     print('****************************************')
     print('Rentang alamat IP: ')
@@ -35,10 +37,11 @@ def classIP (ip_user, split):
         print('Masukkan alamat IP sesuai rentangnya.')
         exit()
         
-    detailIP(ip_user, class_ip, split)
+    detailIP(nama_web, ip_user, class_ip, split)
     
-def detailIP(ip_user, class_ip, split):
+def detailIP(nama_web, ip_user, class_ip, split):
     print('****************************************')
+    print('Nama wesite: ', nama_web)
     print('Alamat IP: ', ip_user)
     print('Nilai oktet pertama: ', split[0])
     print('Nilai oktet kedua: ', split[1])
@@ -49,9 +52,11 @@ def detailIP(ip_user, class_ip, split):
 
 infoIP()
 
-ip_user = input("Masukkan alamat IP: ")
+nama_web = input("Masukkan nama website: ")
 
-split = ip_user.split('.')
+ip_web = s.gethostbyname(nama_web)
 
-cekIP(ip_user, split)
+split = ip_web.split('.')
+
+cekIP(ip_web, split)
 
